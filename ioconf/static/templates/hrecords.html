@@ -1,0 +1,47 @@
+<ion-view title="Health Cards">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+      <ion-list>
+          <ion-item class="item-avatar-left" ng-repeat="hrecord in hrecords" href="#/app/healthCards/{{hrecord.recordId}}">
+              <img ng-src="{{serverPath}}/img/{{hrecord.img}}">
+              {{hrecord.title}}
+              <p>{{hrecord.desc}}</p>
+              <div style="float:right"><p>Date:{{hrecord.record.date}} Time:{{hrecord.record.time}}</p></div>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item class="item-avatar-left" ng-repeat="speaker in speakers" href="#/app/speakers/{{speaker.id}}">
+              <img ng-src="{{serverPath}}/img/icons8-nurse-call.png">
+              Admission
+              <p>Reason: Surgery</p>
+              <div style="float:right"><p>Date:12/11/2017 Time:12:00</p></div>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item class="item-avatar-left" ng-repeat="speaker in speakers" href="#/app/speakers/{{speaker.id}}">
+              <img ng-src="{{serverPath}}/img/icons8-test-tube.png">
+              Lab Report
+              <p>Brain Perfusion SPECT/CT</p>
+              <div style="float:right"><p>Date:12/11/2017 Time:12:00</p></div>
+          </ion-item>
+      </ion-list>
+        <ion-list>
+            <ion-item class="item-avatar-left" ng-repeat="speaker in speakers" href="#/app/speakers/{{speaker.id}}">
+                <img ng-src="{{serverPath}}/img/icons8-calendar.png">
+                Dr. Appointment
+                <p>M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology</p>
+                <div style="float:right"><p>Date:12/11/2017 Time:12:00</p></div>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item class="item-avatar-left" ng-repeat="speaker in speakers" href="#/app/speakers/{{speaker.id}}">
+                <img ng-src="{{serverPath}}/img/icons8-customer.png">
+                Welcome !!<br/>
+                <p>Dinesh Balasundaram</p>
+                <div style="float:right"><p>Date:12/11/2017 Time:12:00</p></div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
