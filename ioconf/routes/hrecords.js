@@ -14,7 +14,7 @@ var hrecords = [
     "resources":[
     {
         "patientId":"100",
-        "recordType":"appoinment",
+        "recordType":"appointment",
         "record":'{"date":"12/11/2017","time":"12:00","hospitalId":"101","physician":"M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology","Diagnosis":"Bone Fracture","reason":"surgery"}'
     }
     ],
@@ -59,7 +59,7 @@ var hrecords = [
 var hrecordsFormated = [];
 exports.findAll = function (req, res, next) {
     formatData(hrecords);
-    res.send(hrecordsFormated);
+    res.send(hrecordsFormated.reverse());
 };
 
 function formatData(hrecords) {
@@ -76,7 +76,7 @@ function formatData(hrecords) {
        cardDetail.desc = record.firstName + ' ' + record.secondName;
        cardDetail.img = "icons8-customer.png";
      break;
-     case "appoinment":
+     case "appointment":
        cardDetail.title = "Dr. Appointment";
        cardDetail.desc = record.physician;
        cardDetail.img = "icons8-calendar.png";
@@ -106,11 +106,11 @@ function formatData(hrecords) {
 
 exports.filterByType = function (req, res, next) {
     var type = req.params.type;
-    var filterArr = hrecords.filter(function(item){
+    var hrecordfilterted = hrecords.filter(function(item){
         return item.resources[0].recordType === type;
     });
-
-    res.send(filterArr);
+    formatData(hrecordfilterted);
+    res.send(hrecordsFormated);
 };
 
 exports.findById = function (req, res, next) {

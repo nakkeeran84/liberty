@@ -15,8 +15,18 @@ angular.module('conference.hrecords', ['conference.config'])
                 }
             })
 
+            .state('app.hrecordsfiltered', {
+                url: "/healthCards/:type",
+                views: {
+                    'menuContent' :{
+                        templateUrl: "templates/hrecords.html",
+                        controller: "HrecordFilteredListCtrl"
+                    }
+                }
+            })
+
             .state('app.hrecord', {
-                url: "/healthCards/:recordId",
+                url: "/healthCards/detail/:recordId",
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/hrecord.html",
@@ -32,8 +42,11 @@ angular.module('conference.hrecords', ['conference.config'])
             all: function() {
                 return $http.get(SERVER_PATH + '/hrecords');
             },
+            filtered: function(type) {
+                return $http.get(SERVER_PATH + '/hrecords/' + type);
+            },
             get: function(recordId) {
-                return $http.get(SERVER_PATH + '/hrecords/' + recordId);
+                return $http.get(SERVER_PATH + '/hrecords/detail/' + recordId);
             }
         };
     })
@@ -57,5 +70,13 @@ angular.module('conference.hrecords', ['conference.config'])
         Hrecord.get($stateParams.recordId).success(function(hrecord) {
           console.log(hrecord);
             $scope.hrecord = hrecord[0];
+        });
+    })
+
+    .controller('HrecordFilteredListCtrl', function ($scope, $stateParams, Hrecord, SERVER_PATH) {
+        $scope.serverPath = SERVER_PATH;
+        $scope.hrecords = [];
+        Hrecord.filtered($stateParams.type).success(function(hrecords) {
+            $scope.hrecords = hrecords;
         });
     });

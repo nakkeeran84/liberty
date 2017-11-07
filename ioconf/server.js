@@ -23,7 +23,8 @@ app.get('/sessions/:id', sessions.findById);
 app.get('/speakers', speakers.findAll);
 app.get('/speakers/:id', speakers.findById);
 app.get('/hrecords', hrecords.findAll);
-app.get('/hrecords/:recordId', hrecords.findById);
+app.get('/hrecords/:type', hrecords.filterByType);
+app.get('/hrecords/detail/:recordId', hrecords.findById);
 app.set('port', process.env.PORT || 5000);
 
 app.listen(app.get('port'), function () {

@@ -14,21 +14,33 @@
         </header>
         <ion-content class="has-header" class="mymenu">
             <ion-list>
-                <ion-item nav-clear menu-close href="#/app/sessions" class="item-icon-left">
-                    <i class="icon ion-ios7-bookmarks"></i>
-                    Sessions
+                <ion-item nav-clear menu-close href="#/app/healthCards">
+                    <img src="img/icons8-folder-all.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">All</div>
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/app/speakers" class="item-icon-left">
-                    <i class="icon ion-ios7-person"></i>
-                    Speakers
+                <ion-item nav-clear menu-close href="#/app/healthCards/appointment">
+                    <img src="img/icons8-calendar-white.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">Appointments</div>
+                </ion-item>     
+                <ion-item nav-clear menu-close href="#/app/healthCards/labreport">
+                    <img src="img/icons8-test-tube-white.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">Lab Report</div>
                 </ion-item>
-                <ion-item nav-clear menu-close ng-click="login()" class="item-icon-left">
+                <ion-item nav-clear menu-close href="#/app/healthCards/admission" >
+                    <img src="img/icons8-nurse-call-white.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">Admission</div>
+                </ion-item>           
+                <ion-item nav-clear menu-close href="#/app/healthCards/discharge" >
+                    <img src="img/icons8-walking-white.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">Discharge</div>
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/profile" >
+                    <img src="img/icons8-customer-white.png" style="width:32px; height:32px; "/>
+                    <div style="margin-top:-31px; margin-left:40px;">Profile</div>
+                </ion-item>           
+                <ion-item nav-clear menu-close ng-click="login()" >
                     <i class="icon ion-ios7-unlocked"></i>
-                    Login
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/profile" class="item-icon-left">
-                    <i class="icon ion-ios7-person-outline"></i>
-                    Profile
+                    Logout
                 </ion-item>
             </ion-list>
         </ion-content>
