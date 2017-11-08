@@ -4,7 +4,7 @@ var hrecords = [
     {
         "patientId":"100",
         "recordType":"join",
-        "record":'{"date":"10/11/2017","time":"23:10","firstName":"Dinesh","secondName":"Balasundaram","age":"28","location":"Chennai","phNo":"9790785993","insurance":"AGQ13882513397204"}'
+        "record":'{"date":"10/11/2016","time":"23:10","firstName":"Dinesh","secondName":"Balasundaram","age":"28","location":"Chennai","phNo":"9790785993","insurance":"AGQ13882513397204"}'
     }
     ],
     "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d16012592",
@@ -15,7 +15,7 @@ var hrecords = [
     {
         "patientId":"100",
         "recordType":"appointment",
-        "record":'{"date":"12/11/2017","time":"12:00","hospitalId":"101","physician":"M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology","Diagnosis":"Bone Fracture","reason":"surgery"}'
+        "record":'{"date":"12/11/2016","time":"12:00","hospitalId":"101","physician":"M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology","diagnosis":"Bone Fracture","reason":"surgery","physicianImg":"dr-rajapandian.jpeg"}'
     }
     ],
     "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d1601234",
@@ -26,7 +26,7 @@ var hrecords = [
     {
         "patientId":"100",
         "recordType":"labreport",
-        "record":'{"date":"15/11/2017","time":"09:10","hospitalId":"101","physician":"M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology","Diagnosis":"Bone Fracture","type":"Brain Perfusion SPECT/CT","docs":["image.jpg","reportsummary.pdf"]}'
+        "record":'{"date":"15/11/2016","time":"09:10","hospitalId":"102","physician":"M.Rajapandi MBBS, MD Gen Medicine, MRCP (UK), PhD - Medical Oncology","diagnosis":"Bone Fracture","type":"Brain Perfusion SPECT/CT","docs":["image.jpg","reportsummary.pdf"]}'
       }
     ],
     "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d16087870",
@@ -37,7 +37,7 @@ var hrecords = [
     {
         "patientId":"100",
         "recordType":"admission",
-        "record":'{"date":"17/11/2017","time":"14:15","hospitalId":"101","physician":"Rajapandi","Diagnosis":"Bone Fracture","reason":"Surgery","type":"inpatient","insurance":"AGQ13882513397204"}'
+        "record":'{"date":"17/11/2016","time":"14:15","hospitalId":"101","physician":"Rajapandi","diagnosis":"Bone Fracture","reason":"Surgery","type":"inpatient","insurance":"AGQ13882513397204"}'
     }
     ],
     "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d16065465465",
@@ -48,10 +48,31 @@ var hrecords = [
     {
         "patientId":"100",
         "recordType":"discharge",
-        "record":'{"date":"18/11/2017","time":"10:30","hospitalId":"101","physician":"Rajapandi","Diagnosis":"Bone Fracture","docs":["image.jpg","reportsummary.pdf"]}'
+        "record":'{"date":"18/11/2016","time":"10:30","hospitalId":"101","physician":"Rajapandi","diagnosis":"Bone Fracture","docs":["image.jpg","reportsummary.pdf"]}'
     }
     ],
     "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d160654345454",
+    "timestamp":"2017-10-28T12:25:32.005Z"
+},{
+    "resources":[
+    {
+        "patientId":"100",
+        "recordType":"appointment",
+        "record":'{"date":"02/12/2016","time":"08:00","hospitalId":"102","physician":"A.Chithra MBBS, MD Gen Medicine","diagnosis":"General Medicine","reason":"Heavy Fever","physicianImg":"dr-chithra.jpeg"}'
+    }
+    ],
+    "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d160874545",
+    "timestamp":"2017-10-28T12:25:32.005Z"
+},
+{
+    "resources":[
+    {
+        "patientId":"100",
+        "recordType":"labreport",
+        "record":'{"date":"15/11/2016","time":"09:10","hospitalId":"102","physician":"A.Chithra MBBS, MD Gen Medicine","diagnosis":"Dengue","type":"Blood IgM and IgG","docs":["image.jpg","reportsummary.pdf"]}'
+      }
+    ],
+    "transactionId": "c2c8ff1d-f0dc-4cb1-925b-990d1604586932",
     "timestamp":"2017-10-28T12:25:32.005Z"
 }
 ];
@@ -70,6 +91,11 @@ function formatData(hrecords) {
    cardDetail.recordId = item.transactionId;
    cardDetail.recordType = item.resources[0].recordType;
 
+    if (record.hospitalId === '101'){
+      cardDetail.hostpitalImg = 'logo-apollo.png';
+    } else if (record.hospitalId === '102'){
+      cardDetail.hostpitalImg = 'logo-global.png';
+    }
    switch (item.resources[0].recordType) {
      case "join":
        cardDetail.title = "Welcome";

@@ -5,6 +5,7 @@
                 <img ng-src="{{serverPath}}/img/{{hrecord.img}}">
                 <h2>{{hrecord.title}}</h2>
                 <p>{{hrecord.desc}}</p>
+                <div style="float:right"><img ng-src="{{serverPath}}/img/{{hrecord.hostpitalImg}}" style="width:60px;"></div>
             </div>
 
             <div class="item item-body" ng-show="hrecord.recordType == 'join'">
@@ -14,22 +15,28 @@
                 <p>Insurence: {{hrecord.record.insurance}}</p>
             </div>
             <div class="item item-body" ng-show="hrecord.recordType == 'appointment'">
-                <p>Date: {{hrecord.record.date}}</p>
-                <p>Time: {{hrecord.record.time}}</p>
-                <p>Sepcialist : {{hrecord.record.Diagnosis}}</p>
-                <p>Reason: {{hrecord.record.reason}}</p>
+                <div style="width:30%; float:left;">
+                    <img ng-src="{{serverPath}}/img/{{hrecord.record.physicianImg}}" style="height:80px;"/>
+                </div>
+                <div style="width:70%; float:right;">
+                    <p>Date: {{hrecord.record.date}}</p>
+                    <p>Time: {{hrecord.record.time}}</p>
+                    <p>Sepcialist : {{hrecord.record.diagnosis}}</p>
+                    <p>Reason: {{hrecord.record.reason}}</p>
+                </div>
             </div>
             <div class="item item-body" ng-show="hrecord.recordType == 'labreport'">
                 <p>Date: {{hrecord.record.date}}</p>
                 <p>Time: {{hrecord.record.time}}</p>
                 <p>Physician : {{hrecord.record.physician}}</p>
-                <p>Diagnosis: {{hrecord.record.Diagnosis}}</p>
+                <p>Diagnosis: {{hrecord.record.diagnosis}}</p>
+                <img ng-src="{{serverPath}}/img/icon8-download" style="width:30px"/>
             </div>
             <div class="item item-body" ng-show="hrecord.recordType == 'admission'">
                 <p>Date: {{hrecord.record.date}}</p>
                 <p>Time: {{hrecord.record.time}}</p>
                 <p>Physician : {{hrecord.record.physician}}</p>
-                <p>Diagnosis: {{hrecord.record.Diagnosis}}</p>
+                <p>Diagnosis: {{hrecord.record.diagnosis}}</p>
                 <p>Reason: {{hrecord.record.reason}}</p>
 
             </div>
@@ -37,7 +44,7 @@
                 <p>Date: {{hrecord.record.date}}</p>
                 <p>Time: {{hrecord.record.time}}</p>
                 <p>Physician : {{hrecord.record.physician}}</p>
-                <p>Diagnosis: {{hrecord.record.Diagnosis}}</p>
+                <p>Diagnosis: {{hrecord.record.diagnosis}}</p>
             </div>
             <!-- <div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item">

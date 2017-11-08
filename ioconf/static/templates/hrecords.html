@@ -4,11 +4,11 @@
     </ion-nav-buttons>
     <ion-content class="has-header">
       <ion-list>
-          <ion-item class="item-avatar-left" ng-repeat="hrecord in hrecords" href="#/app/healthCards/detail/{{hrecord.recordId}}">
+          <ion-item class="item-avatar-left" ng-repeat="hrecord in hrecords" href="#/app/healthCards/detail/{{hrecord.recordId}}">              
               <img ng-src="{{serverPath}}/img/{{hrecord.img}}">
               {{hrecord.title}}
               <p>{{hrecord.desc}}</p>
-              <div style="float:right"><p>Date:{{hrecord.record.date}} Time:{{hrecord.record.time}}</p></div>
+              <div style="float:right"><img ng-src="{{serverPath}}/img/{{hrecord.hostpitalImg}}" style="height:35px;"></div><div style="float:left"><p>Date:{{hrecord.record.date}} Time:{{hrecord.record.time}}</p></div>
           </ion-item>
       </ion-list>
     </ion-content>
